@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>🔬 Forensic Analysis: UNKNOWN (nn94...)</title>
+  <title>🔬 Forensic Analysis: Valeo (nn94...)</title>
   <style>
     body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #e4e4e4; line-height: 1.6;}
     .report {background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);}
@@ -58,10 +58,10 @@
       <h2>📋 Executive Summary</h2>
       <div class="badge medium">35/100 RISK SCORE</div>
       <p style="margin-top: 15px;">
-        <strong>Token:</strong> Unknown (nn94...)<br>
+        <strong>Token:</strong> Valeo (nn94...)<br>
         <strong>Address:</strong> <code class="code">nn944oFMxsHg9AnEuBHWxtBpGjRX3DRxx86PseuDrPJ</code><br>
         <strong>DEX:</strong> PumpSwap<br>
-        <strong>Analysis Date:</strong> 2026-03-03 05:48 UTC
+        <strong>Analysis Date:</strong> 2026-03-03 05:53 UTC
       </p>
       <div class="emergency">
         ⚠️ <strong>BUNDLING DETECTED + MODERATE CONCENTRATION</strong><br>
@@ -93,7 +93,7 @@
         <div class="safety-item"><div class="label">Freeze Authority</div><div class="value" style="color:#14f195;">✅ Renounced</div></div>
       </div>
       <p style="font-size:13px;color:#aaa;margin-top:10px;">
-        Both authorities are renounced — cannot mint/freeze new tokens. Good sign.
+        Both authorities are renounced — cannot mint or freeze new tokens. Good sign.
       </p>
     </div>
 
@@ -101,13 +101,13 @@
       <h2>👴 Top Holder Wallet Ages</h2>
       <table>
         <tr><th>Rank</th><th>Address</th><th>Amount</th><th>%</th><th>Age</th><th>Status</th></tr>
-        <tr><td>1</td><td class="addr">9ggGzZ5k6K...</td><td>109,000,000</td><td>22.1%</td><td>433h</td><td><span class="status mature">✅ Mature</span></td></tr>
-        <tr><td>2</td><td class="addr">8mL3Kb2kGY...</td><td>48,888,297</td><td>9.9%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
+        <tr><td>1</td><td class="addr">9ggGzZ5k6K...</td><td>109,000,000</td><td>22.1%</td><td>434h</td><td><span class="status mature">✅ Mature</span></td></tr>
+        <tr><td>2</td><td class="addr">8mL3Kb2kGY...</td><td>48,323,550</td><td>9.8%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
         <tr><td>3</td><td class="addr">9E9RHCmSZX...</td><td>29,325,184</td><td>6.0%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
         <tr><td>4</td><td class="addr">4hwt8QrMhz...</td><td>25,991,365</td><td>5.3%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
         <tr><td>5</td><td class="addr">BrnDpDLqcN...</td><td>25,000,000</td><td>5.1%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
       </table>
-      <p style="font-size:13px;color:#aaa;">(No fresh wallets in top 10 — all mature)</p>
+      <p style="font-size:13px;color:#aaa;">(No fresh wallets in top 10 — all mature; top holder ~18 days old)</p>
     </div>
 
     <div class="section">
@@ -130,10 +130,10 @@
 
     <div class="section">
       <h2>📝 Conclusion</h2>
-      <p><strong>This token</strong> has <strong>renounced mint/freeze</strong> and mature holders, but shows <strong>bundling</strong> among large wallets:</p>
+      <p><strong>Valeo</strong> has <strong>renounced mint/freeze</strong> and mature holders, but shows <strong>bundling</strong> among large wallets:</p>
       <ol style="margin:15px 0;padding-left:20px;">
         <li><strong>Top 5 holds 48.3%</strong> — moderately concentrated but not extreme</li>
-        <li><strong>Oldest top holder: 433h (18 days)</strong> — not a fresh insider mint</li>
+        <li><strong>Oldest top holder: 434h (18 days)</strong> — not a fresh insider mint</li>
         <li><strong>Mint & freeze are off</strong> — cannot print or freeze</li>
         <li><strong>Bundling detected</strong> — wallets #8 and #9 have nearly identical balances (<0.1% diff), likely one entity</li>
       </ol>
@@ -144,8 +144,8 @@
     </div>
 
     <div class="footer">
-      <p><strong>Analysis performed:</strong> 2026-03-03 05:48 UTC</p>
-      <p><strong>Data sources:</strong> Helius RPC</p>
+      <p><strong>Analysis performed:</strong> 2026-03-03 05:53 UTC</p>
+      <p><strong>Data sources:</strong> Helius RPC, DexScreener (symbol fix applied)</p>
       <p><strong>Analyst:</strong> <a href="https://github.com/humblebyvirtual">Humble AI Agent (ACP)</a></p>
       <p style="margin-top:10px;font-size:11px;color:#666;">
         Bundling detection threshold: &lt;3% difference between consecutive holders.
