@@ -22,12 +22,12 @@
     th, td {padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);}
     th {background: rgba(255,255,255,0.1); font-weight: 600; color: #ccc;}
     tr:hover {background: rgba(255,255,255,0.03);}
-    .bundle-item {background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.3); border-radius: 8px; padding: 10px 15px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px;}
-    .bundle-item .pair {color: #ff4444; font-weight: bold;}
     .wallet-row {display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 5px 0; font-size: 13px;}
     .wallet-row .addr {font-family: 'Courier New', monospace; color: #aaa; max-width: 60%; overflow: hidden; text-overflow: ellipsis;}
     .wallet-row .status {padding: 3px 10px; border-radius: 4px; font-weight: bold; font-size: 11px;}
     .status.fresh {background: #ff4444; color: white;}
+    .bundle-item {background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.3); border-radius: 8px; padding: 10px 15px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px;}
+    .bundle-item .pair {color: #ff4444; font-weight: bold;}
     .risk-box {background: rgba(255,68,68,0.1); border: 2px solid #ff4444; border-radius: 12px; padding: 25px; text-align: center; margin: 20px 0;}
     .risk-score {font-size: 64px; font-weight: bold; color: #ff4444; line-height: 1;}
     .risk-factors {list-style: none; padding: 0; margin: 15px 0; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;}
@@ -38,7 +38,12 @@
     .warning-flag {background: #ff4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-left: 5px;}
     .code {font-family: 'Courier New', monospace; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 13px;}
     .highlight-red {color: #ff4444; font-weight: bold;}
+    .highlight-green {color: #14f195; font-weight: bold;}
     .emergency {background: rgba(255,0,0,0.25); border: 2px solid #ff4444; color: #ff4444; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; text-align: center;}
+    .safety-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;}
+    .safety-item {background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;}
+    .safety-item .label {font-size: 12px; color: #aaa; text-transform: uppercase;}
+    .safety-item .value {font-size: 18px; font-weight: bold; margin-top: 5px;}
   </style>
 </head>
 <body>
@@ -55,7 +60,7 @@
         <strong>Token:</strong> GOOSE (Bprou...)<br>
         <strong>Address:</strong> <code class="code">BprouMoau36y1x6TxiLbHd59Q2eJgrKSBGdzcc6pump</code><br>
         <strong>DEX:</strong> PumpSwap<br>
-        <strong>Analysis Date:</strong> 2026-03-03 05:00 UTC
+        <strong>Analysis Date:</strong> 2026-03-03 05:02 UTC
       </p>
       <div class="emergency">
         🚨 <strong>BULK FRESH WALLET CREATION DETECTED</strong><br>
@@ -69,6 +74,7 @@
         <div class="metric-card"><div class="label">Price</div><div class="value">Unknown</div><div class="sub">—</div></div>
         <div class="metric-card"><div class="label">24h Change</div><div class="value">Unknown</div></div>
         <div class="metric-card"><div class="label">Total Supply</div><div class="value">~999.9M</div><div class="sub">6 decimals</div></div>
+        <div class="metric-card"><div class="label">24h Volume</div><div class="value">Unknown</div></div>
       </div>
     </div>
 
@@ -90,16 +96,28 @@
     </div>
 
     <div class="section">
-      <h2>👴 Creator Wallet Age (Top Holder)</h2>
-      <p style="color:#ff4444;font-weight:bold;">0.0h old</p>
-      <p style="font-size:13px;color:#aaa;">The top holder wallet is FRESH (under 24h). This indicates the token creator minted a new wallet to hold the supply — classic insider setup.</p>
+      <h2>👴 Top Holder Wallet Ages</h2>
+      <p style="font-size:13px;color:#aaa;margin-bottom:15px;">Fresh (under 24h) indicates insider minted wallets.</p>
+      <table>
+        <tr><th>Rank</th><th>Address</th><th>Amount</th><th>%</th><th>Age</th><th>Status</th></tr>
+        <tr><td>1</td><td class="addr">2chfYJeMQj...</td><td>50,383,813</td><td>15.3%</td><td>0.0h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>2</td><td class="addr">8PjmZrh3c8...</td><td>26,371,476</td><td>8.0%</td><td>0.3h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>3</td><td class="addr">BdNqGNa7S5...</td><td>26,162,542</td><td>7.9%</td><td>0.0h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>4</td><td class="addr">AYo1815Xgm...</td><td>21,151,523</td><td>6.4%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>5</td><td class="addr">7eQEmU1FPB...</td><td>19,089,779</td><td>5.8%</td><td>1.7h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>6</td><td class="addr">es7XANYwGs...</td><td>17,510,240</td><td>5.3%</td><td>0.0h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>7</td><td class="addr">9qqkwUEEre...</td><td>16,052,457</td><td>4.9%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>8</td><td class="addr">DYJFrUYjVe...</td><td>15,245,755</td><td>4.6%</td><td>0.0h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>9</td><td class="addr">7ouUqcrY1X...</td><td>14,134,310</td><td>4.3%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+        <tr><td>10</td><td class="addr">BKELV7tvPV...</td><td>??</td><td>??</td><td>0.0h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+      </table>
     </div>
 
     <div class="section">
       <h2>🔗 Bundling Detection</h2>
       <p style="font-size:13px;color:#aaa;margin-bottom:15px;">Wallets with similar amounts (within 1-3%) indicate single-entity control.</p>
-      <div class="bundle-item"><span class="pair">Ranks 2 & 3</span> — diff 5.7% (moderate similarity)</div>
-      <div class="bundle-item"><span class="pair">Ranks 6 & 7</span> — diff 5.5% (possible cluster)</div>
+      <div class="bundle-item"><span class="pair">Ranks 2 & 3</span> — 26,371,476 vs 26,162,542 (0.7% diff) <strong>✅ BUNDLED</strong></div>
+      <div class="bundle-item"><span class="pair">Ranks 6 & 7</span> — 17,510,240 vs 16,052,457 (8.3% diff) moderate similarity</div>
     </div>
 
     <div class="section">
@@ -123,16 +141,16 @@
       </ol>
       <div class="emergency">🚨 INSIDER-COORDINATED PUMP — DO NOT BUY</div>
       <p style="margin-top:15px;background:rgba(255,68,68,0.2);padding:15px;border-radius:8px;border-left:4px solid #ff4444;">
-        <strong>💀 CERTAIN LOSS IF PURCHASED.</strong> The token's top 10 holders are all freshly created wallets, signaling a coordinated insider operation. Expect 100% loss.
+        <strong>💀 CERTAIN LOSS IF PURCHASED.</strong> The token's top 10 holders are all freshly created wallets, signaling a coordinated insider operation. The developer can dump at any time.
       </p>
     </div>
 
     <div class="footer">
-      <p><strong>Analysis performed:</strong> 2026-03-03 05:00 UTC</p>
+      <p><strong>Analysis performed:</strong> 2026-03-03 05:02 UTC</p>
       <p><strong>Data sources:</strong> DexScreener, Helius RPC</p>
       <p><strong>Analyst:</strong> <a href="https://github.com/humblebyvirtual">Humble AI Agent (ACP)</a></p>
       <p style="margin-top:10px;font-size:11px;color:#666;">
-        Fresh wallet detection: <24h considered fresh. Bundle detection: amounts within 1-3%.
+        Fresh detection: <24h considered fresh. Bundle detection: amounts within 1-3%. Mint/freeze renounced indicates no minting ability, but insiders can still sell.
       </p>
     </div>
   </div>
