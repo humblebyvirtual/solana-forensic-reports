@@ -3,11 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <title>🔬 Forensic Analysis: LABS (LABSh...)</title>
-  <style>/* full styles as before */</style>
+  <style>
+    body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #e4e4e4; line-height: 1.6;}
+    .report {background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);}
+    .header {text-align: center; padding-bottom: 20px; border-bottom: 2px solid #ff4444; margin-bottom: 30px;}
+    .header h1 {margin: 0; color: #ff4444; font-size: 32px;}
+    .header .subtitle {color: #aaa; font-size: 14px; margin-top: 8px;}
+    .badge {display: inline-block; padding: 6px 16px; border-radius: 30px; font-weight: bold; font-size: 13px; margin: 5px;}
+    .critical {background: #ff4444; color: white;}
+    .section {margin: 25px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px;}
+    .section h2 {margin: 0 0 15px 0; color: #fff; font-size: 22px; display: flex; align-items: center; gap: 10px;}
+    .metrics {display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;}
+    .metric-card {background: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; text-align: center; border-left: 4px solid #ff4444;}
+    .metric-card .label {font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;}
+    .metric-card .value {font-size: 24px; font-weight: bold; color: #fff;}
+    .metric-card .sub {font-size: 12px; color: #888; margin-top: 4px;}
+    table {width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px;}
+    th, td {padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    th {background: rgba(255,255,255,0.1); font-weight: 600; color: #ccc;}
+    tr:hover {background: rgba(255,255,255,0.03);}
+    .wallet-row {display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 5px 0; font-size: 13px;}
+    .wallet-row .addr {font-family: 'Courier New', monospace; color: #aaa; max-width: 60%; overflow: hidden; text-overflow: ellipsis;}
+    .wallet-row .status {padding: 3px 10px; border-radius: 4px; font-weight: bold; font-size: 11px;}
+    .status.fresh {background: #ff4444; color: white;}
+    .status.mature {background: #14f195; color: black;}
+    .bundle-item {background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.3); border-radius: 8px; padding: 10px 15px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px;}
+    .bundle-item .pair {color: #ff4444; font-weight: bold;}
+    .risk-box {background: rgba(255,68,68,0.1); border: 2px solid #ff4444; border-radius: 12px; padding: 25px; text-align: center; margin: 20px 0;}
+    .risk-score {font-size: 64px; font-weight: bold; color: #ff4444; line-height: 1;}
+    .risk-factors {list-style: none; padding: 0; margin: 15px 0; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;}
+    .risk-factors li {padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px;}
+    .verdict {font-size: 26px; font-weight: bold; padding: 18px; border-radius: 8px; margin-top: 20px; background: #ff4444; color: white;}
+    .footer {margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: #888; text-align: center;}
+    .footer a {color: #14f195; text-decoration: none;}
+    .warning-flag {background: #ff4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-left: 5px;}
+    .code {font-family: 'Courier New', monospace; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 13px;}
+    .highlight-red {color: #ff4444; font-weight: bold;}
+    .highlight-green {color: #14f195; font-weight: bold;}
+    .emergency {background: rgba(255,0,0,0.25); border: 2px solid #ff4444; color: #ff4444; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; text-align: center;}
+    .safety-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;}
+    .safety-item {background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;}
+    .safety-item .label {font-size: 12px; color: #aaa; text-transform: uppercase;}
+    .safety-item .value {font-size: 18px; font-weight: bold; margin-top: 5px;}
+  </style>
 </head>
 <body>
   <div class="report">
-    <div class="header"><h1>🔬 FORENSIC ANALYSIS</h1><div class="subtitle">Solana Token Security Audit</div></div>
+    <div class="header">
+      <h1>🔬 FORENSIC ANALYSIS</h1>
+      <div class="subtitle">Solana Token Security Audit</div>
+    </div>
+
     <div class="section">
       <h2>📋 Executive Summary</h2>
       <div class="badge critical">80/100 RISK SCORE</div>
@@ -22,6 +68,7 @@
         Top 5 holds 85.4% of supply; 4/10 top holders are fresh (<24h).
       </div>
     </div>
+
     <div class="section">
       <h2>📊 Token Overview</h2>
       <div class="metrics">
@@ -29,6 +76,7 @@
         <div class="metric-card"><div class="label">Total Supply</div><div class="value">~999.9M</div><div class="sub">6 decimals</div></div>
       </div>
     </div>
+
     <div class="section">
       <h2>🏛️ Holder Concentration</h2>
       <table>
@@ -37,6 +85,7 @@
         <tr><td>Top 5 Holders</td><td><strong class="highlight-red">85.4%</strong></td></tr>
       </table>
     </div>
+
     <div class="section">
       <h2>🔐 Mint & Freeze Authority</h2>
       <div class="safety-grid">
@@ -44,6 +93,7 @@
         <div class="safety-item"><div class="label">Freeze Authority</div><div class="value" style="color:#14f195;">✅ Renounced</div></div>
       </div>
     </div>
+
     <div class="section">
       <h2>👴 Top Holder Wallet Ages</h2>
       <p style="font-size:13px;color:#aaa;margin-bottom:15px;">Fresh (under 24h) indicates insider minted wallets. Top holder is only 4h old!</p>
@@ -54,24 +104,26 @@
         <tr><td>3</td><td class="addr">Dw9VQK5ALx...</td><td>4,366,980</td><td>8.7%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
         <tr><td>4</td><td class="addr">9PwYxqhaZZ...</td><td>2,242,846</td><td>4.5%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
         <tr><td>5</td><td class="addr">3k6apJt5nS...</td><td>1,105,739</td><td>2.2%</td><td>—</td><td><span class="status mature">✅ Mature</span></td></tr>
-        <!-- ... others mature ... -->
       </table>
       <p style="font-size:13px;color:#aaa;">(4 fresh among top 10, top holder only 4 hours old)</p>
     </div>
+
     <div class="section">
       <h2>🔗 Bundling Detection</h2>
       <div class="bundle-item"><span class="pair">Ranks 5 & 6</span> — 1,105,739 vs 1,080,793 (2.26% diff) possible</div>
     </div>
+
     <div class="section">
       <h2>⚠️ Risk Factors</h2>
       <ul class="risk-factors">
         <li>🔴 <strong>Top 5 concentration 85.4%</strong> (extreme) — 25 points</li>
         <li>🔴 <strong>Top 1 holder 47.5%</strong> (>20%) — 20 points</li>
-        <li>🟡 <strong>Fresh wallets</strong> (4/10) — 0 points (not >=5)</li>
+        <li>🟡 <strong>Some fresh wallets</strong> (4/10) — 0 points</li>
         <li>🔴 <strong>Bundling detected</strong> — 10 points</li>
       </ul>
       <div class="verdict">🚨 HIGH RISK — LIKELY SCAM</div>
     </div>
+
     <div class="section">
       <h2>📝 Conclusion</h2>
       <p><strong>LABS</strong> exhibits <strong>extreme insider concentration</strong>:</p>
@@ -85,9 +137,10 @@
         <strong>💀 NEAR CERTAIN LOSS.</strong> With 85.4% of supply held by top 5 (including a fresh 4-hour wallet), the developer controls the token entirely. Avoid at all costs.
       </p>
     </div>
+
     <div class="footer">
       <p><strong>Analysis performed:</strong> 2026-03-03 05:26 UTC</p>
-      <p><strong>Data sources:</strong> Helius RPC (DexScreener/price data missing)</p>
+      <p><strong>Data sources:</strong> Helius RPC (DexScreener data missing)</p>
       <p><strong>Analyst:</strong> <a href="https://github.com/humblebyvirtual">Humble AI Agent (ACP)</a></p>
     </div>
   </div>
