@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🔬 Forensic Analysis: 72FKE (72Fk...)</title>
+  <style>
+    body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #e4e4e4; line-height: 1.6;}
+    .report {background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);}
+    .header {text-align: center; padding-bottom: 20px; border-bottom: 2px solid #ff4444; margin-bottom: 30px;}
+    .header h1 {margin: 0; color: #ff4444; font-size: 32px;}
+    .header .subtitle {color: #aaa; font-size: 14px; margin-top: 8px;}
+    .badge {display: inline-block; padding: 6px 16px; border-radius: 30px; font-weight: bold; font-size: 13px; margin: 5px;}
+    .critical {background: #ff4444; color: white;}
+    .section {margin: 25px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px;}
+    .section h2 {margin: 0 0 15px 0; color: #fff; font-size: 22px; display: flex; align-items: center; gap: 10px;}
+    .metrics {display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;}
+    .metric-card {background: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; text-align: center; border-left: 4px solid #ff4444;}
+    .metric-card .label {font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;}
+    .metric-card .value {font-size: 24px; font-weight: bold; color: #fff;}
+    .metric-card .sub {font-size: 12px; color: #888; margin-top: 4px;}
+    table {width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px;}
+    th, td {padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    th {background: rgba(255,255,255,0.1); font-weight: 600; color: #ccc;}
+    tr:hover {background: rgba(255,255,255,0.03);}
+    .bundle-item {background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.3); border-radius: 8px; padding: 10px 15px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px;}
+    .bundle-item .pair {color: #ff4444; font-weight: bold;}
+    .risk-factors {list-style: none; padding: 0; margin: 15px 0; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;}
+    .risk-factors li {padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px;}
+    .verdict {font-size: 26px; font-weight: bold; padding: 18px; border-radius: 8px; margin-top: 20px; background: #ff4444; color: white;}
+    .footer {margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: #888; text-align: center;}
+    .footer a {color: #14f195; text-decoration: none;}
+    .highlight-red {color: #ff4444; font-weight: bold;}
+    .highlight-green {color: #14f195; font-weight: bold;}
+    .emergency {background: rgba(255,0,0,0.25); border: 2px solid #ff4444; color: #ff4444; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; text-align: center;}
+    .safety-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;}
+    .safety-item {background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;}
+    .safety-item .label {font-size: 12px; color: #aaa; text-transform: uppercase;}
+    .safety-item .value {font-size: 18px; font-weight: bold; margin-top: 5px;}
+  </style>
+</head>
+<body>
+  <div class="report">
+    <div class="header">
+      <h1>🔬 FORENSIC ANALYSIS</h1>
+      <div class="subtitle">Solana Token Security Audit</div>
+    </div>
+
+    <div class="section">
+      <h2>📋 Executive Summary</h2>
+      <div class="badge critical">45/100 RISK SCORE</div>
+      <p style="margin-top: 15px;">
+        <strong>Token:</strong> 72FKE (72Fk...)<br>
+        <strong>Address:</strong> <code class="code">72FkeF1cpBMtbordhTVNVbBGdaN5DfHcchstHwPWpump</code><br>
+        <strong>DEX:</strong> PumpSwap<br>
+        <strong>Analysis Date:</strong> 2026-03-03 05:14 UTC
+      </p>
+      <div class="emergency">
+        ⚠️ <strong>WALLET BUNDLING + MODERATE CONCENTRATION</strong><br>
+        Some top holders show coordinated amounts; top 5 holds 44.9%.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📊 Token Overview</h2>
+      <div class="metrics">
+        <div class="metric-card"><div class="label">Price</div><div class="value">—</div></div>
+        <div class="metric-card"><div class="label">Total Supply</div><div class="value">~999.9M</div><div class="sub">6 decimals</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🏛️ Holder Concentration</h2>
+      <table>
+        <tr><th>Metric</th><th>% of Supply</th></tr>
+        <tr><td>Top 1 Holder</td><td><strong class="highlight-red">18.6%</strong></td></tr>
+        <tr><td>Top 5 Holders</td><td><strong class="highlight-red">44.9%</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>🔐 Mint & Freeze Authority</h2>
+      <div class="safety-grid">
+        <div class="safety-item"><div class="label">Mint Authority</div><div class="value" style="color:#14f195;">✅ Renounced</div></div>
+        <div class="safety-item"><div class="label">Freeze Authority</div><div class="value" style="color:#14f195;">✅ Renounced</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔗 Bundling Detection</h2>
+      <p style="font-size:13px;color:#aaa;margin-bottom:15px;">Multiple wallet pairs with similar amounts indicate potential clustering.</p>
+      <div class="bundle-item"><span class="pair">Ranks 3 & 4</span> — 36,446,403 vs 36,275,446 (0.47% diff) ✅ BUNDLED</div>
+      <div class="bundle-item"><span class="pair">Ranks 5 & 6</span> — 29,858,615 vs 29,837,074 (0.07% diff) ✅ BUNDLED</div>
+      <div class="bundle-item"><span class="pair">Ranks 8 & 9</span> — 23,446,332 vs 22,964,465 (2.06% diff) similar</div>
+      <div class="bundle-item"><span class="pair">Ranks 9 & 10</span> — 22,964,465 vs 22,583,255 (1.67% diff) similar</div>
+    </div>
+
+    <div class="section">
+      <h2>⚠️ Risk Factors</h2>
+      <ul class="risk-factors">
+        <li>🔴 <strong>Top 5 concentration 44.9%</strong> (>30%) — 15 points</li>
+        <li>🔴 <strong>Top 1 holder 18.6%</strong> (>10%) — 15 points</li>
+        <li>🔴 <strong>Bundling detected</strong> (multiple pairs) — 10 points</li>
+        <li>🟡 Fresh wallets: only 2/10 top holders <24h (not a major factor)</li>
+      </ul>
+      <div class="verdict">⚠️ MEDIUM RISK — INVESTIGATE FURTHER</div>
+    </div>
+
+    <div class="section">
+      <h2>📝 Conclusion</h2>
+      <p><strong>72FKE</strong> shows <strong>moderate risk signals</strong> but lacks the extreme red flags of bulk fresh wallets.</p>
+      <ol style="margin:15px 0;padding-left:20px;">
+        <li><strong>Bundling present:</strong> Ranks 3-4 and 5-6 have near-identical amounts (<1% diff), suggesting wallet clustering</li>
+        <li><strong>High concentration:</strong> Top 5 controls 44.9% — unusual for legitimate projects</li>
+        <li><strong>Fresh wallets minimal:</strong> Only 2 of top 10 are <24h old, reducing immediate rug pull likelihood</li>
+      </ol>
+      <div style="margin-top:15px;padding:15px;background:rgba(255,193,7,0.2);border-radius:8px;border-left:4px solid #ffc107;">
+        <strong>⚠️ CAUTION ADVISED.</strong> Not an obvious scam, but concentration and bundling warrant deep due diligence before any investment.
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Analysis performed:</strong> 2026-03-03 05:14 UTC</p>
+      <p><strong>Data sources:</strong> DexScreener, Helius RPC</p>
+      <p><strong>Analyst:</strong> <a href="https://github.com/humblebyvirtual">Humble AI Agent (ACP)</a></p>
+      <p style="margin-top:10px;font-size:11px;color:#666;">
+        Risk scoring: concentration, fresh wallets, bundling, mint/freeze authority.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
