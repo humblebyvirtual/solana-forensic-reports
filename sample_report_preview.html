@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Solana Forensic Analysis Sample</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .report {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    .header {
+      border-bottom: 3px solid #14f195;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      margin: 0;
+      color: #1a1a1a;
+      font-size: 24px;
+    }
+    .header .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .badge.critical { background: #ff4444; color: white; }
+    .badge.high { background: #ff8800; color: white; }
+    .badge.medium { background: #ffbb33; color: #333; }
+    .badge.low { background: #00c851; color: white; }
+    
+    .section {
+      margin: 25px 0;
+    }
+    .section h2 {
+      font-size: 18px;
+      color: #333;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .metric {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #14f195;
+    }
+    .metric .label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .metric .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 5px 0;
+    }
+    .metric .percent {
+      font-size: 14px;
+      color: #888;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #555;
+    }
+    
+    .bundle-item {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 6px;
+      padding: 10px 15px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    .bundle-item .pair {
+      font-weight: bold;
+      color: #856404;
+    }
+    
+    .wallet-age {
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+    }
+    .wallet-age .address {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #666;
+      flex: 1;
+    }
+    .wallet-age .age {
+      margin: 0 15px;
+      font-weight: 600;
+    }
+    .wallet-age .status {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .wallet-age .status.fresh { background: #ff4444; color: white; }
+    .wallet-age .status.old { background: #00c851; color: white; }
+    
+    .risk-box {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .risk-score {
+      text-align: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: #ff4444;
+      margin: 10px 0;
+    }
+    .risk-factors {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+    .risk-factors li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    .risk-factors li:last-child {
+      border-bottom: none;
+    }
+    .verdict {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .verdict.critical { background: #ff4444; color: white; }
+    .verdict.high { background: #ff8800; color: white; }
+    .verdict.medium { background: #ffbb33; color: #333; }
+    .verdict.low { background: #00c851; color: white; }
+    
+    .footer {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="report">
+    <div class="header">
+      <h1>🔬 Deep Forensic Analysis</h1>
+      <div class="subtitle">Solana Token Security Audit | Generated in 8 minutes</div>
+    </div>
+    
+    <div class="section">
+      <h2>📋 Executive Summary</h2>
+      <div class="badge critical">CRITICAL RISK</div>
+      <p><strong>Token:</strong> World Peace (Peace)<br>
+      <strong>Address:</strong> <code>atVjZ7uM8sVrLFi5Xe1JiLGW6mW9pvQdTCWzhNFpump</code><br>
+      <strong>Analysis Date:</strong> 2026-02-28</p>
+    </div>
+    
+    <div class="section">
+      <h2>📊 Token Overview</h2>
+      <div class="metrics">
+        <div class="metric">
+          <div class="label">Price</div>
+          <div class="value">$0.001109</div>
+        </div>
+        <div class="metric">
+          <div class="label">24h Change</div>
+          <div class="value" style="color: #ff4444;">+3400%</div>
+        </div>
+        <div class="metric">
+          <div class="label">Total Supply</div>
+          <div class="value">995M</div>
+        </div>
+        <div class="metric">
+          <div class="label">24h Volume</div>
+          <div class="value">$1.8M</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>🏛️ Holder Concentration</h2>
+      <table>
+        <tr>
+          <th>Metric</th>
+          <th>Amount</th>
+          <th>% of Supply</th>
+        </tr>
+        <tr>
+          <td>Top 1 Holder</td>
+          <td>37,642,077</td>
+          <td><strong>3.78%</strong></td>
+        </tr>
+        <tr>
+          <td>Top 5 Holders</td>
+          <td>101,969,117</td>
+          <td><strong>10.25%</strong></td>
+        </tr>
+        <tr>
+          <td>Top 10 Holders</td>
+          <td>159,531,792</td>
+          <td><strong>16.03%</strong></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="section">
+      <h2>🔗 Bundling Detection</h2>
+      <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Bundling = multiple wallets with similar amounts (within 1%) indicating single entity control</p>
+      <div class="bundle-item">
+        <span class="pair">Ranks 7 & 8</span> — 11,559,988 vs 11,524,022 (0.31% difference) ✅ BUNDLED
+      </div>
+      <div class="bundle-item">
+        <span class="pair">Ranks 11 & 12</span> — 9,178,142 vs 9,091,566 (0.94% difference) ✅ BUNDLED
+      </div>
+      <div class="bundle-item">
+        <span class="pair">Ranks 14 & 15</span> — 8,646,256 vs 8,568,076 (0.91% difference) ✅ BUNDLED
+      </div>
+      <div class="bundle-item">
+        <span class="pair">Ranks 18 & 19</span> — 7,769,790 vs 7,713,298 (0.73% difference) ✅ BUNDLED
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>🕐 Wallet Ages (Top 5)</h2>
+      <div class="wallet-age">
+        <span class="address">6zSKhaNPAS... (Rank 1)</span>
+        <span class="age">0.00h</span>
+        <span class="status fresh">🆕 FRESH</span>
+      </div>
+      <div class="wallet-age">
+        <span class="address">Dqj9ApNJDt... (Rank 2)</span>
+        <span class="age">0.00h</span>
+        <span class="status fresh">🆕 FRESH</span>
+      </div>
+      <div class="wallet-age">
+        <span class="address">AoQnAV4uSb... (Rank 3)</span>
+        <span class="age">0.36h</span>
+        <span class="status fresh">🆕 FRESH</span>
+      </div>
+      <div class="wallet-age">
+        <span class="address">... (Rank 4)</span>
+        <span class="age">0.62h</span>
+        <span class="status fresh">🆕 FRESH</span>
+      </div>
+      <div class="wallet-age">
+        <span class="address">... (Rank 5)</span>
+        <span class="age">3.23h</span>
+        <span class="status fresh">🆕 FRESH</span>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>⚠️ Risk Assessment</h2>
+      <div class="risk-box">
+        <div class="risk-score">80/100</div>
+        <ul class="risk-factors">
+          <li>🔴 Multiple bundled wallet pairs</li>
+          <li>🔴 Top holders are fresh wallets (&lt;24h)</li>
+          <li>🔴 Extreme 24h price gain (&gt;100%)</li>
+          <li>⚠️ Top 5 concentration &gt;10%</li>
+          <li>⚠️ Net selling pressure</li>
+        </ul>
+      </div>
+      <div class="verdict critical">AVOID - High probability of manipulation/rug</div>
+    </div>
+    
+    <div class="footer">
+      <p>Analysis performed by Humble AI Agent | <a href="https://github.com/humblebyvirtual/solana-deep-forensic-demo">View on GitHub</a></p>
+      <p>Powered by Helius RPC & DexScreener | Report valid for 24 hours</p>
+    </div>
+  </div>
+</body>
+</html>
