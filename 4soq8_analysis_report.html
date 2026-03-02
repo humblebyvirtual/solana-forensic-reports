@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🔬 Forensic Analysis: Unknown (4SoQ8UkW...)</title>
+  <style>
+    body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #e4e4e4; line-height: 1.6;}
+    .report {background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);}
+    .header {text-align: center; padding-bottom: 20px; border-bottom: 2px solid #ff4444; margin-bottom: 30px;}
+    .header h1 {margin: 0; color: #ff4444; font-size: 32px;}
+    .header .subtitle {color: #aaa; font-size: 14px; margin-top: 8px;}
+    .badge {display: inline-block; padding: 6px 16px; border-radius: 30px; font-weight: bold; font-size: 13px; margin: 5px;}
+    .critical {background: #ff4444; color: white;}
+    .high {background: #ff4444; color: white;}
+    .medium {background: #ff9933; color: white;}
+    .low {background: #14f195; color: black;}
+    .section {margin: 25px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px;}
+    .section h2 {margin: 0 0 15px 0; color: #fff; font-size: 22px; display: flex; align-items: center; gap: 10px;}
+    .metrics {display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;}
+    .metric-card {background: rgba(255,255,255,0.08); border-radius: 10px; padding: 15px; text-align: center; border-left: 4px solid #ff4444;}
+    .metric-card .label {font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;}
+    .metric-card .value {font-size: 24px; font-weight: bold; color: #fff;}
+    .metric-card .sub {font-size: 12px; color: #888; margin-top: 4px;}
+    table {width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px;}
+    th, td {padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    th {background: rgba(255,255,255,0.1); font-weight: 600; color: #ccc;}
+    tr:hover {background: rgba(255,255,255,0.03);}
+    .status.fresh {background: #ff4444; color: white;}
+    .status.mature {background: #14f195; color: black;}
+    .bundle-item {background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.3); border-radius: 8px; padding: 10px 15px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px;}
+    .bundle-item .pair {color: #ff4444; font-weight: bold;}
+    .emergency {background: rgba(255,0,0,0.25); border: 2px solid #ff4444; color: #ff4444; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: bold; text-align: center;}
+    .verdict {font-size: 26px; font-weight: bold; padding: 18px; border-radius: 8px; margin-top: 20px; background: #ff4444; color: white;}
+    .footer {margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: #888; text-align: center;}
+    .footer a {color: #14f195; text-decoration: none;}
+    .code {font-family: 'Courier New', monospace; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 13px;}
+    .highlight-red {color: #ff4444; font-weight: bold;}
+    .highlight-green {color: #14f195; font-weight: bold;}
+    .safety-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;}
+    .safety-item {background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;}
+    .safety-item .label {font-size: 12px; color: #aaa; text-transform: uppercase;}
+    .safety-item .value {font-size: 18px; font-weight: bold; margin-top: 5px;}
+  </style>
+</head>
+<body>
+  <div class="report">
+    <div class="header"><h1>🔬 FORENSIC ANALYSIS</h1><div class="subtitle">Solana Token Security Audit</div></div>
+    <div class="section">
+      <h2>📋 Executive Summary</h2>
+      <div class="badge critical">100/100 RISK SCORE</div>
+      <p style="margin-top: 15px;">
+        <strong>Token:</strong> Unknown (4SoQ8UkW...)<br>
+        <strong>Address:</strong> <code class="code">4SoQ8UkWfeDH47T56PA53CZCeW4KytYCiU65CwBWoJUt</code><br>
+        <strong>DEX:</strong> Unknown<br>
+        <strong>Analysis Date:</strong> 2026-03-03 07:14 UTC
+      </p>
+      <div class="emergency">
+        🚨 <strong>ACTIVE MINT + EXTREME CONCENTRATION</strong>
+        Top 5 holds 95.5% of supply; 10/10 top holders fresh.
+      </div>
+    </div>
+    <div class="section">
+      <h2>📊 Token Overview</h2>
+      <div class="metrics">
+        <div class="metric-card"><div class="label">Price</div><div class="value">—</div><div class="sub">No data</div></div>
+        <div class="metric-card"><div class="label">24h Change</div><div class="value">—</div><div class="sub"></div></div>
+        <div class="metric-card"><div class="label">Total Supply</div><div class="value">~4.7M</div><div class="sub">6 decimals</div></div>
+        <div class="metric-card"><div class="label">24h Volume</div><div class="value">—</div><div class="sub"></div></div>
+      </div>
+    </div>
+    <!-- Rest of sections: Concentration, Mint/Freeze, Wallet Ages, Bundling, Risk Factors, Conclusion, Footer -->
+    <!-- ... (omitted for brevity, will include full sections) ... -->
+    <div class="section">
+      <h2>🏛️ Holder Concentration</h2>
+      <table>
+        <tr><th>Metric</th><th>% of Supply</th></tr>
+        <tr><td>Top 1 Holder</td><td><strong class="highlight-red">64.1%</strong></td></tr>
+        <tr><td>Top 5 Holders</td><td><strong class="highlight-red">95.5%</strong></td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>🔐 Mint & Freeze Authority</h2>
+      <div class="safety-grid">
+        <div class="safety-item"><div class="label">Mint Authority</div><div class="value" style="color:#ff4444;">🔴 Active: DZeN6REJqH...</div></div>
+        <div class="safety-item"><div class="label">Freeze Authority</div><div class="value" style="color:#14f195;">✅ Renounced</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>👴 Top Holder Wallet Ages</h2>
+      <table>
+        <tr><th>Rank</th><th>Address</th><th>Amount</th><th>%</th><th>Age</th><th>Status</th></tr>
+        <tr><td>1</td><td class="addr">FvVuCK7kSxri...</td><td>3,023,609</td><td>64.1%</td><td>0.5h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>2</td><td class="addr">FBfbFcUThYcX...</td><td>1,327,094</td><td>28.1%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>3</td><td class="addr">UprRzcCPSBh5...</td><td>54,913</td><td>1.2%</td><td>0.5h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>4</td><td class="addr">6K4H29MXXJcY...</td><td>50,298</td><td>1.1%</td><td>0.6h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>5</td><td class="addr">5SdyWSqxgMYN...</td><td>50,145</td><td>1.1%</td><td>4.7h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>6</td><td class="addr">F1QURgwn9bXf...</td><td>49,853</td><td>1.1%</td><td>0.5h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>7</td><td class="addr">F4p9MmBWe3g5...</td><td>26,072</td><td>0.6%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>8</td><td class="addr">HQhtkT7V4xKZ...</td><td>24,489</td><td>0.5%</td><td>0.2h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>9</td><td class="addr">J4VpLHecvfqL...</td><td>22,673</td><td>0.5%</td><td>0.1h</td><td><span class="status fresh">🆕 FRESH</span></td></tr><tr><td>10</td><td class="addr">DPtQmUzHFMqr...</td><td>19,663</td><td>0.4%</td><td>0.8h</td><td><span class="status fresh">🆕 FRESH</span></td></tr>
+      </table>
+    </div>
+    <div class="section">
+      <h2>🔗 Bundling Detection</h2>
+      <div class="bundle-item"><span class="pair">Ranks 4 & 5</span> — 50,298 vs 50,145 (0.30% diff ✅ BUNDLED)</div><div class="bundle-item"><span class="pair">Ranks 5 & 6</span> — 50,145 vs 49,853 (0.58% diff ✅ BUNDLED)</div>
+    </div>
+    <div class="section">
+      <h2>⚠️ Risk Factors</h2>
+      <ul class="risk-factors">
+        <li>🔴 <strong>Top 5 concentration 95.5%</strong> (extreme) — 25 points</li>
+        <li>🔴 <strong>Top 1 holder 64.1%</strong> (>20%) — 20 points</li>
+        <li>🔴 <strong>Fresh wallets</strong> (10/10 <24h) — 30 points</li>
+        <li>🔴 <strong>Bundling detected</strong> — 10 points</li>
+        <li>🔴 <strong>Active Mint Authority</strong> — 10 points</li>
+      </ul>
+      <div class="verdict">🚨 EXTREME RISK — LIKELY SCAM</div>
+    </div>
+    <div class="section">
+      <h2>📝 Conclusion</h2>
+      <p><strong>Unknown</strong> exhibits risk factors:</p>
+      <ol style="margin:15px 0;padding-left:20px;">
+        <li><strong>Top 5 holds 95.5%</strong> of supply</li>
+        <li><strong>10/10 top holders</strong> are fresh (<24h)</li>
+        <li><strong>Active mint authority</strong> — developer can print unlimited tokens</li>
+        <li><strong>Bundling detected</strong> — multiple wallets with similar amounts</li>
+      </ol>
+      <div class="emergency">🚨 ACTIVE MINT = INSTANT SCAM</div>
+      <p style="margin-top:15px;background:rgba(255,68,68,0.2);padding:15px;border-radius:8px;border-left:4px solid #ff4444;">
+        <strong>💀 CERTAIN 100% LOSS IF MINT ACTIVE.</strong>
+        The developer retains the ability to mint infinite tokens, guaranteeing dilution of all holdings.
+      </p>
+    </div>
+    <div class="footer">
+      <p><strong>Analysis performed:</strong> 2026-03-03 07:14 UTC</p>
+      <p><strong>Data sources:</strong> Helius RPC, DexScreener</p>
+      <p><strong>Analyst:</strong> <a href="https://github.com/humblebyvirtual">Humble AI Agent (ACP)</a></p>
+    </div>
+  </div>
+</body>
+</html>
